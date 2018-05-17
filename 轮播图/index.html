@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            margin-top: 100px;
+            width: 100%;
+            height: 340px;
+            position: relative;
+        }
+
+        .list {
+            width: 1200px;
+            height: 300px;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            margin-left: -600px;
+        }
+        .btn {
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            width: 60px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            background: rgba(1, 1, 2, 0.27);
+            cursor: pointer;
+        }
+        .right{
+            right: 0;
+        }
+        li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            list-style: none;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        img {
+            width: 751px;
+            height: 300px;
+            border: none;
+            float: left;
+        }
+        .p1 {
+            transform: translate3d(-224px,0,0) scale(0.81);
+        }
+        .p2 {
+            transform: translate3d(0px,0,0) scale(0.81);
+            transform-origin: 0 50%;
+            opacity: 0.8;
+            z-index: 2;
+        }
+        .p3{
+            transform: translate3d(224px,0,0) scale(1);
+            z-index: 3;
+            opacity: 1;
+        }
+        .p4{
+            transform:translate3d(449px,0,0) scale(0.81);
+            transform-origin:100% 50%;
+            opacity: 0.8;
+            z-index: 2;
+        }
+        .p5{
+            transform:translate3d(672px,0,0) scale(0.81);
+        }
+        .p6{
+            transform:translate3d(896px,0,0) scale(0.81);
+        }
+        .p7{
+            transform:translate3d(1120px,0,0) scale(0.81);
+        }
+        .buttons {
+            position: absolute;
+            width: 1200px;
+            height: 30px;
+            bottom: 0;
+            left: 50%;
+            margin-left: -600px;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .buttons a {
+            display: inline-block;
+            width: 35px;
+            height: 5px;
+            padding-top: 4px;
+            cursor: pointer;
+        }
+        span{
+            display: block;
+            width: 35px;
+            height: 1px;
+            background: red;
+        }
+        .blue {
+            background: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="list">
+            <ul>
+                <li class="p1"><a href="#"><img src="../images/lb1.jpeg" alt=""></a></li>
+                <li class="p2"><a href="#"><img src="../images/lb2.jpeg" alt=""></a></li>
+                <li class="p3"><a href="#"><img src="../images/lb3.jpeg" alt=""></a></li>
+                <li class="p4"><a href="#"><img src="../images/lb4.jpeg" alt=""></a></li>
+                <li class="p5"><a href="#"><img src="../images/lb5.jpeg" alt=""></a></li>
+                <li class="p6"><a href="#"><img src="../images/lb6.jpeg" alt=""></a></li>
+                <li class="p7"><a href="#"><img src="../images/lb7.jpeg" alt=""></a></li>
+            </ul>
+        </div>
+
+        <a href="javascript:;" class="left btn"><</a>
+        <a href="javascript:;" class="right btn">></a>
+
+        <div class="buttons">
+            <a href="javascript:;"><span class="blue"></span></a>
+            <a href="javascript:;"><span></span></a>
+            <a href="javascript:;"><span></span></a>
+            <a href="javascript:;"><span></span></a>
+            <a href="javascript:;"><span></span></a>
+            <a href="javascript:;"><span></span></a>
+            <a href="javascript:;"><span></span></a>
+        </div>
+    </div>
+
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    var $a = $(".buttons a");
+    var $s = $(".buttons span");
+    var cArr = ["p7","p6","p5","p4","p3","p2","p1"];
+    var index = 0;
+    $(".right").click(
+        function () {
+            nextImg();
+        }
+    )
+    $(".left").click(
+        function () {
+            prevImg();
+        }
+    )
+
+    function prevImg() {
+        cArr.unshift(cArr[6]);
+        cArr.pop();
+        $("li").each(function (i,e) {
+            $(e).removeClass().addClass(cArr[i]);
+        })
+        index--;
+        if (index < 0) {
+            index = 6;
+        }
+        show();
+    }
+
+    function nextImg() {
+        cArr.push(cArr[0]);
+        cArr.shift();
+        $("li").each(function (i,e) {
+            $(e).removeClass().addClass(cArr[i]);
+        })
+        index++;
+        if(index > 6) {
+            index = 0;
+        }
+        show();
+    }
+
+    $a.each(function () {
+        $(this).click(function () {
+            var myIndex = $(this).index();
+            var b = myIndex - index;
+            if(b==0) {
+                return;
+            } else if (b>0){
+                var newArr = cArr.splice(0,b);
+                cArr = $.merge(cArr,newArr);
+                $("li").each(function (i, e) {
+                    $(e).removeClass().addClass(cArr[i]);
+                })
+                index = myIndex;
+                show();
+            } else if(b<0) {
+                cArr.reverse();
+                var oldArr = cArr.splice(0,-b);
+                cArr = $.merge(cArr,oldArr);
+                cArr.reverse();
+                $("li").each(function (i, e) {
+                    $(e).removeClass().addClass(cArr[i]);
+                })
+                index = myIndex;
+                show();
+            }
+        })
+    })
+
+    function show() {
+        $($s).eq(index).addClass("blue").parent().siblings().children().removeClass("blue");
+    }
+
+    $(document).on("click",".p2",function () {
+        prevImg();
+        return false;
+    });
+
+    $(document).on("click",".p4",function () {
+        nextImg();
+        return false;
+    });
+
+    $(".box").mouseover(function () {
+        clearInterval(timer);
+    })
+
+    $(".box").mouseleave(function () {
+        timer = setInterval(nextImg(),4000);
+    })
+
+    timer = setInterval(nextImg(),4000);
+</script>
+</body>
+</html>
