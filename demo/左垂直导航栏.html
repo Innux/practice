@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>left</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: gainsboro;
+            height: 100%;
+            width: 25%;
+            position: fixed;
+            overflow: auto;
+        }
+        li a{
+            display: block;
+            padding: 8px 16px;
+            color: #000;
+            text-decoration: none;
+
+        }
+        .main{
+            margin-left: 25%;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+        /*点击颜色 color为字体颜色*/
+        li a.active{
+            background-color: cornflowerblue;
+            color: white;
+        }
+        li a:hover:not(.active) {
+            background-color: red;
+            color: purple;
+        }
+
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><a class="active" href="#home">主页</a></li>
+    <li><a href="#news">新闻</a></li>
+    <li><a href="#contact">联系</a></li>
+    <li><a href="#about">关于</a></li>
+</ul>
+
+<div class="main">
+    <h2>Fixed Full-height Side Nav</h2>
+    <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
+    <p>Notice that this div element has a left margin of 25%. This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
+    <p>Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+    <p>Some text..</p>
+</div>
+</body>
+</html>
