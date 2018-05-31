@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="tb" border="1">
+</table>
+
+<script>
+    var tb = document.getElementById("tb");
+    for (var m = 1; m < 10; m++) {
+        var tr = document.createElement("tr");
+        tb.appendChild(tr);
+        for (var n = 1; n < 10; n++) {
+            var th = document.createElement("td");
+            th.innerHTML = m + "*" + n + "=" + (m * n);
+            tr.appendChild(th);
+        }
+    }
+</script>
+</body>
+</html>
