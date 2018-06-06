@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="btn1" type="button" value="findByName">
+<input id="btn2" type="button" value="findById">
+<input id="btn3" type="button" value="findByName">
+<p id="result">result</p>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var result = document.getElementById("result");
+
+    btn1.onclick = function () {
+        result.innerHTML = findIdByName("Saber");
+    }
+    btn2.onclick = function () {
+        result.innerHTML = findNameById(12);
+    }
+    // getListWithDLR();
+    // console.log("======");
+    // getListWithLDR();
+    // console.log("======");
+    getListWithLRD();
+
+
+    var tree = {
+        "id": 0,
+        "name": "root",
+        "left": {
+            "id": 1,
+            "name": "Simon",
+            "left": {
+                "id": 3,
+                "name": "Carl",
+                "left": {
+                    "id": 7,
+                    "name": "Lee",
+                    "left": {
+                        "id": 11,
+                        "name": "Fate"
+                    }
+                },
+                "right": {
+                    "id": 8,
+                    "name": "Annie",
+                    "left": {
+                        "id": 12,
+                        "name": "Saber"
+                    }
+                }
+            },
+            "right": {
+                "id": 4,
+                "name": "Tony",
+                "left": {
+                    "id": 9,
+                    "name": "Candy"
+                }
+            }
+        },
+        "right": {
+            "id": 2,
+            "name": "right",
+            "left": {
+                "id": 5,
+                "name": "Carl",
+            },
+            "right": {
+                "id": 6,
+                "name": "Carl",
+                "right": {
+                    "id": 10,
+                    "name": "Kai"
+                }
+            }
+        }
+    }
+
+    // 假设id和name均不会重复，根据输入name找到对应的id
+    function findIdByName(name) {
+        var loop = function (obj) {
+            if (!obj) {
+                return false;
+            }
+            if (obj.name === name) {
+                return obj.id;
+            }
+            return loop(obj.left) || loop(obj.right);
+        };
+        return loop(tree);
+    }
+
+    // 假设id和name均不会重复，根据输入id找到对应的name
+    function findNameById(id) {
+        var loop = function (obj) {
+            if (!obj) {
+                return false;
+            }
+            if (obj.id === id) {
+                return obj.name;
+            }
+            return loop(obj.left) || loop(obj.right);
+        };
+        return loop(tree);
+    }
+
+    // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+    function getListWithDLR() {
+        var loop = function (obj) {
+            console.log(obj.name);
+            if (obj.left)
+                loop(obj.left);
+            if (obj.right)
+                loop(obj.right);
+        };
+        loop(tree);
+    }
+
+    // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+    function getListWithLDR() {
+        var loop = function (obj) {
+            if (obj.left) {
+                loop(obj.left);
+            }
+            console.log(obj.name);
+            if (obj.right)
+                loop(obj.right);
+        };
+        loop(tree);
+    }
+
+    // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+    function getListWithLRD() {
+        var loop = function (obj) {
+            if (obj.left) {
+                loop(obj.left);
+            }
+            if (obj.right) {
+                loop(obj.right);
+            }
+            console.log(obj.name);
+        };
+        loop(tree);
+    }
+</script>
+</body>
+</html>

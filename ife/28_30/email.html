@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<!--当用户没有任何输入时，提示框消失
+当用户输入字符后，显示提示框，并且把用户输入的内容自动拼上邮箱后缀进行显示
+暂时不用考虑示意图中的红色和蓝色背景色的逻辑
+注意用户输入中前后空格需要去除-->
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+
+<script>
+    (function () {
+
+
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+
+        var input = document.getElementById("email-input");
+        var ul = document.getElementById("email-sug-wrapper");
+
+        input.addEventListener("input", function () {
+            var inputVal = getUserInput(this);
+            //判断列表是否显示
+            listHandler(inputVal);
+            //构建生成提示列表
+            buildTipList(inputVal);
+        })
+
+        //html转码
+        var htmlEncode = function (html) {
+            var tmp = document.createElement("div");
+            temp.textContent != undefined ? temp.textContent = html : temp.innerText = html;
+            return temp.innerHTML;
+        }
+        //html解码
+        var htmlDecode = function (html) {
+            var tmp = document.createElement("div");
+            tmp.innerHTML = html;
+            return tmp.innerText || tmp.textContent;
+        }
+
+        //生成提示列表
+        var buildTipList = function (inputVal) {
+            if (!inputVal) return false;
+            //拆分输入内容
+            var str = inputVal.split("@");
+            //筛选后缀数组
+            var flist = filterList(str[1]);
+            ul.innerHTML = buildHtml(str[0], flist);
+        }
+
+        //拼接html
+        var buildHtml = function (str, list) {
+            var l = list.length;
+            var html = [];
+            for (var i = 0; i < l; i++) {
+                var li = "<li>" + htmlEncode(str + "@" + list[i]) + "</li>";
+                html.push(li);
+            }
+            return html.join("");
+        }
+
+        var buildTipList = function (str) {
+            if (!str) return false;
+            var str1 = str.split("@");
+        }
+        //筛选后缀数组
+        var filterList = function (str) {
+            if (!str) return postfixList;
+            var pl = postfixList.length,
+                strl = str.length,
+                result = [];
+            //遍历匹配符合要求的后缀
+            for (var i = 0; i < pl; i++) {
+                var val = postfixList[i];
+                //挨个字符对比
+                for (var j = 0; j < strl; j++) {
+                    if (val[j] !== str[j]) {
+                        break;
+                    }
+                    //完全匹配后加入结果
+                    if (j === strl - 1) {
+                        result.push(postfixList[i]);
+                    }
+                }
+            }
+            //匹配不成功 返回所有后缀
+            if (!result.length) {
+                return postfixList;
+            }
+            return result;
+        }
+
+        // 拿到input输入框的输入内容trim后返回 获取用户输入
+        var getUserInput = function (e) {
+            var inputVal = e.value;
+            if (!inputVal) return "";
+            return inputVal.trim();
+        }
+        //判断是否显示
+        var listHandler = function (str) {
+            if (str) {
+                showList();
+            } else {
+                hiddenList();
+            }
+        }
+
+        var hiddenList = function () {
+            ul.style.display = "none";
+        }
+        var showList = function () {
+            ul.style.display = "block";
+        }
+    })()
+</script>
+</body>
+</html>

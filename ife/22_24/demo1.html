@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--按照HTML中按钮的描述以此实现功能
+计算结果显示在 id 为 result 的 P 标签中
+除了第一个按钮，其它按钮操作时，都需要判断输入是否为数字，否则在 console 中输出错误信息-->
+<body>
+<div>
+    <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+    <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+</div>
+<div>
+    <button id="btn1">判断当前选中的输入框输入内容是否为数字</button>
+    <button id="btn2">把 A 四舍五入为 B 个小数位数的数字</button>
+    <button id="btn3">当前选中数字的绝对值</button>
+    <button id="btn4">对当前选中的数字进行上舍入</button>
+    <button id="btn5">对当前选中的数字进行下舍入</button>
+    <button id="btn6">把当前选中的数字四舍五入为最接近的整数</button>
+    <button id="btn7">返回 A 和 B 中的最高值</button>
+    <button id="btn8">返回 A 和 B 中的最低值</button>
+</div>
+<p id="result">结果</p>
+
+<script>
+    var radioA = document.getElementById("radio-a");
+    var radioB = document.getElementById("radio-b");
+    var radio = document.getElementsByName("math-obj");
+    var result = document.getElementById("result");
+    var txtA = document.getElementById("num-a")
+    var txtB = document.getElementById("num-b");
+
+
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+    var btn5 = document.getElementById("btn5");
+    var btn6 = document.getElementById("btn6");
+    var btn7 = document.getElementById("btn7");
+    var btn8 = document.getElementById("btn8");
+
+    btn8.onclick = function () {
+        var a = parseFloat(txtA.value);
+        var b = parseFloat(txtB.value);
+        if (a > b) {
+            result.innerHTML = b;
+        } else {
+            result.innerHTML = a;
+        }
+    }
+    btn7.onclick = function () {
+        var a = parseFloat(txtA.value);
+        var b = parseFloat(txtB.value);
+        if (a > b) {
+            result.innerHTML = a;
+        } else {
+            result.innerHTML = b;
+        }
+    }
+    btn6.onclick = function () {
+        if (radioA.checked) {
+            if (isNaN(txtA.value)) {
+                result.innerHTML = txtA.value + "不是数字";
+            } else {
+                result.innerHTML = parseFloat(txtA.value).toFixed(0);
+            }
+        } else {
+            if (isNaN(txtB.value)) {
+                result.innerHTML = txtB.value + "不是数字";
+            } else {
+                result.innerHTML = parseFloat(txtB.value).toFixed(0);
+            }
+        }
+    }
+
+    btn5.onclick = function () {
+        if (radioA.checked) {
+            if (isNaN(txtA.value)) {
+                result.innerHTML = txtA.value + "不是数字";
+            } else {
+                result.innerHTML = Math.floor(txtA.value);
+            }
+        } else {
+            if (isNaN(txtB.value)) {
+                result.innerHTML = txtB.value + "不是数字";
+            } else {
+                result.innerHTML = Math.floor(txtB.value);
+            }
+        }
+    }
+    btn4.onclick = function () {
+        if (radioA.checked) {
+            if (isNaN(txtA.value)) {
+                result.innerHTML = txtA.value + "不是数字";
+            } else {
+                result.innerHTML = Math.ceil(txtA.value);
+            }
+        } else {
+            if (isNaN(txtB.value)) {
+                result.innerHTML = txtB.value + "不是数字";
+            } else {
+                result.innerHTML = Math.ceil(txtB.value);
+            }
+        }
+    }
+    btn3.onclick = function () {
+        if (radioA.checked) {
+            if (isNaN(txtA.value)) {
+                result.innerHTML = txtA.value + "不是数字";
+            } else {
+                result.innerHTML = Math.abs(txtA.value);
+            }
+        } else {
+            if (isNaN(txtB.value)) {
+                result.innerHTML = txtB.value + "不是数字";
+            } else {
+                result.innerHTML = Math.abs(txtB.value);
+            }
+        }
+    }
+    btn2.onclick = function () {
+        if (isNaN(txtA.value) || isNaN(txtB.value)) {
+            console.log("请输入数字");
+        } else {
+            var a = parseFloat(txtA.value);
+            var b = txtB.value;
+            result.innerHTML = a.toFixed(b);
+        }
+    }
+    btn1.onclick = function () {
+        if (radioA.checked) {
+            if (isNaN(txtA.value)) {
+                result.innerHTML = txtA.value + "不是数字";
+            } else {
+                result.innerHTML = txtA.value + "是数字";
+            }
+        } else {
+            if (isNaN(txtB.value)) {
+                result.innerHTML = txtB.value + "不是数字";
+            } else {
+                result.innerHTML = txtB.value + "是数字";
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>
