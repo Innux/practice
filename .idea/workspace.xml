@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dd4ed81-8120-489a-9383-08165eabd314" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ife/2021/demo3-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/2021/demo4-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/2021/demo4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/2021/demo5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/22_24/demo1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/22_24/demo2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/22_24/demo3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/28_30/email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ife/28_30/email_demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/bird.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/mis/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/mis/js/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/mis/js/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/mis/js/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/mis/js/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/mis/js/ife31data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/mis/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ife/svg/demo1.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ife/28_30/email.html" beforeDir="false" afterPath="$PROJECT_DIR$/ife/28_30/email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ife/28_30/email_demo.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,20 +26,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="email.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ife/28_30/email.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ife/mis/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="62" column="53" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
+            <state relative-caret-position="255">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email_demo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ife/28_30/email_demo.html">
+      <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ife/mis/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="118" column="21" lean-forward="true" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
+            <state relative-caret-position="180">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ife/mis/js/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ife/mis/js/form.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ife/mis/js/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="15" selection-start-column="15" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ife/mis/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -66,9 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/task-css/threebar.html" />
-        <option value="$PROJECT_DIR$/task-css/threebar2.html" />
-        <option value="$PROJECT_DIR$/task-js/task01.html" />
         <option value="$PROJECT_DIR$/task-js/task02.html" />
         <option value="$PROJECT_DIR$/task-js/task03.html" />
         <option value="$PROJECT_DIR$/task-js/task04.html" />
@@ -108,6 +144,18 @@
         <option value="$PROJECT_DIR$/ife/22_24/demo3.html" />
         <option value="$PROJECT_DIR$/ife/28_30/email_demo.html" />
         <option value="$PROJECT_DIR$/ife/28_30/email.html" />
+        <option value="$PROJECT_DIR$/ife/mis/main.css" />
+        <option value="$PROJECT_DIR$/ife/mis/js/global.js" />
+        <option value="$PROJECT_DIR$/ife/mis/js/ife31data.js" />
+        <option value="$PROJECT_DIR$/ife/mis/js/aa.js" />
+        <option value="$PROJECT_DIR$/ife/mis/js/table.js" />
+        <option value="$PROJECT_DIR$/ife/mis/js/config.js" />
+        <option value="$PROJECT_DIR$/ife/mis/index.html" />
+        <option value="$PROJECT_DIR$/ife/mis/js/common.js" />
+        <option value="$PROJECT_DIR$/ife/mis/js/form.js" />
+        <option value="$PROJECT_DIR$/ife/svg/demo1.html" />
+        <option value="$PROJECT_DIR$/ife/svg/demo1.svg" />
+        <option value="$PROJECT_DIR$/ife/mis/demo1.html" />
       </list>
     </option>
   </component>
@@ -118,9 +166,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="800" />
+    <option name="x" value="203" />
+    <option name="y" value="25" />
+    <option name="width" value="1096" />
+    <option name="height" value="803" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -128,7 +177,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,12 +193,13 @@
               <item name="practice" type="b2602c69:ProjectViewProjectNode" />
               <item name="practice" type="462c0819:PsiDirectoryNode" />
               <item name="ife" type="462c0819:PsiDirectoryNode" />
-              <item name="28_30" type="462c0819:PsiDirectoryNode" />
+              <item name="mis" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,7 +213,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ife/mis/js" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ife/mis" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/ife/2021" />
       <recent name="$PROJECT_DIR$/js" />
@@ -203,18 +256,19 @@
       <workItem from="1527573599720" duration="35000" />
       <workItem from="1527598786195" duration="2251000" />
       <workItem from="1527729789294" duration="9187000" />
-      <workItem from="1527989514722" duration="24386000" />
+      <workItem from="1527989514722" duration="42026000" />
+      <workItem from="1528526175707" duration="310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70792000" />
+    <option name="totallyTimeSpent" value="88742000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="800" extended-state="0" />
+    <frame x="203" y="25" width="1096" height="803" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20347223" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16423358" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -240,59 +294,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/边框处理.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/透明边框处理.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/左垂直导航栏.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/边框处理.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/透明边框处理.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/formdemo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/轮播图/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
-          <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personalPortfoli/index.html" />
-    <entry file="file://$PROJECT_DIR$/task-css/threebar.html" />
-    <entry file="file://$PROJECT_DIR$/task-css/threebar.html" />
-    <entry file="file://$PROJECT_DIR$/task-css/threebar2.html" />
     <entry file="file://$PROJECT_DIR$/task-js/task01.html" />
     <entry file="file://$PROJECT_DIR$/task-js/task02.html" />
     <entry file="file://$PROJECT_DIR$/task-js/task03.html" />
@@ -416,16 +417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#3;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#4;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#5;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#6;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#7;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -433,16 +424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#3;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#4;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#5;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#6;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#7;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -450,9 +431,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -477,13 +455,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ife/22_24/mdn_demo1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/22_24/mdn_demo1.html" />
     <entry file="file://$PROJECT_DIR$/ife/22_24/demo3.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-830">
@@ -498,17 +470,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ife/28_30/email_demo.html">
+    <entry file="file://$PROJECT_DIR$/ife/28_30/email_demo.html" />
+    <entry file="file://$PROJECT_DIR$/ife/28_30/email.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="118" column="21" lean-forward="true" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
+        <state relative-caret-position="268">
+          <caret line="69" column="34" lean-forward="true" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ife/28_30/email.html">
+    <entry file="file://$PROJECT_DIR$/ife/mis/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="62" column="53" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
+        <state relative-caret-position="135">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/mis/js/aa.js" />
+    <entry file="file://$PROJECT_DIR$/ife/mis/js/ife31data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/mis/js/table.js" />
+    <entry file="file://$PROJECT_DIR$/ife/mis/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/mis/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/mis/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/svg/demo1.html" />
+    <entry file="file://$PROJECT_DIR$/ife/mis/js/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/mis/demo1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ife/mis/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>

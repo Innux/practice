@@ -3,122 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
+    <style>
+        body {
+            margin: 20px;
+        }
 
-<!--当用户没有任何输入时，提示框消失
-当用户输入字符后，显示提示框，并且把用户输入的内容自动拼上邮箱后缀进行显示
-暂时不用考虑示意图中的红色和蓝色背景色的逻辑
-注意用户输入中前后空格需要去除-->
+        #email-input {
+            width: 300px;
+            padding: 8px;
+            margin-right: 20px;
+            /* line-height: 32px; */
+            border: 1px solid #d9d9d9;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        #email-sug-wrapper {
+            width: 300px;
+            padding: 0;
+            margin-top: -1px;
+            font-size: 14px;
+            border: 1px solid #d9d9d9;
+            color: #aaa;
+            box-sizing: border-box;
+        }
+
+        #email-sug-wrapper li {
+            padding: 8px;
+            list-style: none;
+            cursor: pointer;
+            /* overflow: hidden; */
+            word-wrap: break-word;
+        }
+
+        #email-sug-wrapper li.select {
+            background-color: #fec4cf;
+        }
+
+        #email-sug-wrapper li:hover {
+            background-color: #bde0e9;
+        }
+    </style>
+</head>
 <body>
+
 <div class="wrapper">
     <input id="email-input" type="text">
     <ul id="email-sug-wrapper" class="email-sug"></ul>
 </div>
 
+
 <script>
     (function () {
-
-
         var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+        var inputBox = document.getElementById("email-input");
+        var ulBox = document.getElementById("email-sug-wrapper");
+        inputBox.focus();
 
-        var input = document.getElementById("email-input");
-        var ul = document.getElementById("email-sug-wrapper");
-
-        input.addEventListener("input", function () {
-            var inputVal = getUserInput(this);
-            //判断列表是否显示
-            listHandler(inputVal);
-            //构建生成提示列表
-            buildTipList(inputVal);
+        var nowSelectTipIndex = 0;
+        //按键监听，上下选择,回车确认
+        inputBox.addEventListener('keydown', function (e) {
+            var keyCode = e.keyCode;
+            if (keyCode === 27) {
+                e.preventDefault();
+                // 按下Esc键(27) 全选输入框内容
+                inputBox.select();
+            } else if (/^13|38|40$/.test(keyCode)) {
+                e.preventDefault();
+                var tipListItem = ulBox.getElementsByTagName('li');
+                // 避免nowSelectTipIndex有误，若没有选中项默认列表第一项
+                var currentSelectItem = tipListItem[nowSelectTipIndex] || tipListItem[0];
+                // 按下回车键(13)
+                if (keyCode === 13) return tipChoose(currentSelectItem.innerHTML);
+                // 上(38)下(40)
+                tipListItem[nowSelectTipIndex].classList.remove('select');
+                // 计算新的选中项下标
+                if (keyCode === 38) {
+                    nowSelectTipIndex = nowSelectTipIndex <= 0 ? tipListItem.length - 1 : nowSelectTipIndex - 1;
+                } else {
+                    nowSelectTipIndex = nowSelectTipIndex >= tipListItem.length - 1 ? 0 : nowSelectTipIndex + 1;
+                }
+                // 新选中项添加样式
+                tipListItem[nowSelectTipIndex].classList.add('select');
+            }
         })
 
-        //html转码
-        var htmlEncode = function (html) {
-            var tmp = document.createElement("div");
-            temp.textContent != undefined ? temp.textContent = html : temp.innerText = html;
-            return temp.innerHTML;
-        }
-        //html解码
-        var htmlDecode = function (html) {
-            var tmp = document.createElement("div");
-            tmp.innerHTML = html;
-            return tmp.innerText || tmp.textContent;
-        }
-
-        //生成提示列表
-        var buildTipList = function (inputVal) {
-            if (!inputVal) return false;
-            //拆分输入内容
-            var str = inputVal.split("@");
-            //筛选后缀数组
-            var flist = filterList(str[1]);
-            ul.innerHTML = buildHtml(str[0], flist);
+        inputBox.addEventListener("input", function () {
+            var content = getInput(this);
+            showControl(content);
+            buildList(content);
+        })
+        //列表生成
+        var buildList = function (content) {
+            if (!content) return false;
+            var str = content.split("@");
+            var filterList = getFilterList(str[1]);
+            var buildedHtml = buildHtml(str[0], filterList);
+            // 重置选中状态
+            resetSelectTipIndex();
+            ulBox.innerHTML = buildedHtml;
         }
 
-        //拼接html
-        var buildHtml = function (str, list) {
-            var l = list.length;
-            var html = [];
-            for (var i = 0; i < l; i++) {
-                var li = "<li>" + htmlEncode(str + "@" + list[i]) + "</li>";
-                html.push(li);
+        //html拼接
+        var buildHtml = function (content, after) {
+            var len = after.length;
+            var result = [];
+            for (var i = 0; i < len; i++) {
+                result.push((i === nowSelectTipIndex ? '<li class="select">' : '<li>') + content + "@" + after[i] + "</li>");
             }
-            return html.join("");
+            console.log(result.join("+"));
+            return result.join("");
         }
-
-        var buildTipList = function (str) {
-            if (!str) return false;
-            var str1 = str.split("@");
-        }
-        //筛选后缀数组
-        var filterList = function (str) {
-            if (!str) return postfixList;
-            var pl = postfixList.length,
-                strl = str.length,
-                result = [];
-            //遍历匹配符合要求的后缀
-            for (var i = 0; i < pl; i++) {
-                var val = postfixList[i];
-                //挨个字符对比
-                for (var j = 0; j < strl; j++) {
-                    if (val[j] !== str[j]) {
+        //获得筛选后缀
+        var getFilterList = function (content) {
+            if (!content) return postfixList;
+            var contentLen = content.length;
+            var listLen = postfixList.length;
+            var result = [];
+            //遍历后缀数组进行匹配
+            for (var i = 0; i < listLen; i++) {
+                var after = postfixList[i];
+                for (var j = 0; j < contentLen; j++) {
+                    if (content[j] !== after[j]) {
                         break;
                     }
-                    //完全匹配后加入结果
-                    if (j === strl - 1) {
+                    if (j === contentLen - 1) {
                         result.push(postfixList[i]);
                     }
                 }
             }
-            //匹配不成功 返回所有后缀
-            if (!result.length) {
-                return postfixList;
-            }
+            if (!result.length) return postfixList;
             return result;
         }
 
-        // 拿到input输入框的输入内容trim后返回 获取用户输入
-        var getUserInput = function (e) {
-            var inputVal = e.value;
-            if (!inputVal) return "";
-            return inputVal.trim();
-        }
-        //判断是否显示
-        var listHandler = function (str) {
-            if (str) {
-                showList();
-            } else {
-                hiddenList();
+        //将用户输入与后缀匹配
+        var matchContent = function (inputContent) {
+            var postLen = postfixList.length;
+            var matchedContent = [];
+
+            if (!inputContent) return false;
+            for (var i = 0; i < postLen; i++) {
+                if (inputContent.indexOf("@")) {
+
+                } else {
+                    matchedContent.push(inputContent + "@" + postfixList[i]);
+                }
+
             }
+            // console.log(matchedContent);
+            return matchedContent;
         }
 
-        var hiddenList = function () {
-            ul.style.display = "none";
+
+        //获取用户输入
+        var getInput = function (e) {
+            var inputContent = e.value;
+            if (!inputContent) {
+                console.log("no content");
+                return "";
+            }
+            return inputContent.trim();
         }
-        var showList = function () {
-            ul.style.display = "block";
+
+        // 重置选中状态
+        var resetSelectTipIndex = function () {
+            nowSelectTipIndex = 0;
         }
+
+        var showControl = function (content) {
+            if (content) {
+                showUl();
+            } else {
+                hideUl();
+            }
+        }
+        var hideUl = function () {
+            ulBox.style.display = "none";
+        }
+        var showUl = function () {
+            ulBox.style.display = "block";
+        }
+        ulBox.addEventListener("click", function (e) {
+            var target = e.target;
+            if (target.nodeName.toLowerCase() !== "li") return false;
+            tipChoose(target.innerHTML);
+        })
+        //用户点击选择
+        var tipChoose = function (val) {
+            inputBox.value = val;
+            hideUl();
+            inputBox.focus();
+        }
+
     })()
 </script>
+
 </body>
 </html>
