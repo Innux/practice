@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单的菜单动画</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #text{
+            position: relative;
+            display: inline-block;
+            -webkit-transition: color 0.5s;
+            -moz-transition: color 0.5s;
+            -ms-transition: color 0.5s;
+            -o-transition: color 0.5s;
+            transition: color 0.5s;
+        }
+        #text:after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0px;
+            height: 2px;
+            background-color: cornflowerblue;
+            -webkit-transition: width 0.5s;
+            -moz-transition: width 0.5s;
+            -ms-transition: width 0.5s;
+            -o-transition: width 0.5s;
+            transition: width 0.5s;
+            transform: translateX(-50%);
+        }
+
+        #text.active {
+            color: cornflowerblue;
+        }
+        #text.active:after{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h2 id="text">TEXT</h2><br/>
+<button id="btn">click</button>
+<script>
+    var oText = document.getElementById("text");
+    var oBtn = document.getElementById("btn");
+    var isActive = false;
+    oBtn.onclick = function () {
+        if (!isActive) {
+            isActive = true;
+            oText.classList.add("active");
+        } else {
+            isActive = false;
+            oText.classList.remove("active");
+        }
+    }
+    
+</script>
+</body>
+</html>
