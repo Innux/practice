@@ -10,7 +10,6 @@ dd{
     margin-top: 20px;
     background: hsl(222, 95%, 64%);
     overflow: auto;
-    zoom: 1;
     border: 1px solid #efefef;
 }
 
@@ -20,13 +19,14 @@ dd{
     padding-top: 50px;
     text-align: center;
     color: #ffffff;
+    background: red;
 }
 
 .main {
     float: left;
     width: 80%;
     padding-left: 20px;
-    background: #ffffff;
+    background: greenyellow;
     box-sizing: border-box;
 }
 

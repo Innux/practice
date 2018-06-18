@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>三种简历</title>
-    <link type="text/css" rel="stylesheet" href="style_2.css"/>
+    <link id="link" type="text/css" rel="stylesheet" href="style_1.css"/>
 </head>
 <body>
     <nav class="nav">
@@ -70,6 +70,7 @@
     for (var i = 0; i < length; i++) {
         btn[i].onclick = function () {
             var fileName = this.dataset.file;
+            console.log(fileName+"====");
             cssLink.href = fileName + ".css";
         }
     }

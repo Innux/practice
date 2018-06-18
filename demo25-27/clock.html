@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="content"></p>
+<script>
+    window.onload = function () {
+        startTime();
+    }
+
+
+    var text = document.getElementById('content');
+    var weekDay = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+    function startTime() {
+        var now = new Date();
+        var day = now.getDay();
+        var week = getWeek(day);
+        var hour = now.getHours();
+        var min = now.getMinutes();
+        var sec = now.getSeconds();
+
+        hour = toFull(hour);
+        min = toFull(min);
+        sec = toFull(sec);
+
+        var time = week + hour + ':' + min + ':' + sec;
+        text.innerHTML = time;
+        var t = setTimeout('startTime()', 1000);
+    }
+
+
+
+    var getWeek = function (day) {
+        return weekDay[day];
+    }
+
+    var toFull = function (i) {
+        if (i < 10) {
+            i = '0' + i;
+        }
+        return i;
+    }
+</script>
+</body>
+</html>
