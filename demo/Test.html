@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var sum = function () {
+        if (arguments.length > 0) {
+            var result = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                result += arguments[i];
+            }
+            return result;
+        }
+    }
+
+
+
+    var ensure = function (condition, message) {
+        if (!condition) {
+            console.log(message);
+            return;
+        }
+        console.log('success');
+    }
+
+    var testSum = function () {
+        var value = sum(1,2,3,4);
+        ensure(value === 11,'sum wrong');
+    }
+    testSum();
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            display: inline-block;
+
+            margin: 5px;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="active">HTML</div>
+<div>CSS</div>
+<div>JavaScript</div>
+
+<script>
+
+    var divs = document.querySelectorAll('div');
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].addEventListener('click',function (event) {
+            var self = event.target;
+            clearActive();
+            self.classList.add('active');
+        })
+    }
+
+    var clearActive = function () {
+        var ac = document.querySelector('.active')
+        if (ac) {
+            ac.classList.remove('active');
+        }
+    }
+</script>
+</body>
+</html>

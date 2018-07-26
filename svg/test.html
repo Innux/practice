@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        svg {
+            background-color: rgba(170, 170, 170, 0.27);
+        }
+    </style>
+</head>
+<body>
+
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg-main">
+    <!--<line x1="50" y1="50" x2="50" y2="350" stroke="black" fill="transparent" stroke-width="1"/>-->
+    <!--<line x1="50" y1="350" x2="550" y2="350" stroke="black" fill="transparent" stroke-width="1"/>-->
+
+    <!--<rect x="90" y="250" width="40" height="100" fill="blue"/>-->
+    <!--<text x="90" y="370" text-decoration="center">1月</text>-->
+    <!--<rect x="170" y="150" width="40" height="200" fill="blue"/>-->
+    <!--<text x="170" y="370">2月</text>-->
+</svg>
+
+<script src="ife31data.js"></script>
+<script>
+    var itemTemplet = function (rx, ry, rw, rh, tx, ty, txt) {
+        var s = ` <rect x="${rx}" y="${ry}" width="${rw}" height="${rh}" fill="blue"/>
+                  <text x="${tx}" y="${ty}">${txt}</text>`;
+        return s;
+    }
+
+    //data[0].sale
+    var buildChart = function (data) {
+        var svg = document.querySelector('#svg-main');
+        svg.innerHTML = '';
+        var s = ` <line x1="50" y1="50" x2="50" y2="350" stroke="black" fill="transparent" stroke-width="1"/>
+                  <line x1="50" y1="350" x2="550" y2="350" stroke="black" fill="transparent" stroke-width="1"/>`;
+        var count = 0;//第几条柱子
+        var rw = 20, rh = 0, rx = 0, ry = 0;
+        var tx = 0, ty = 370;
+        var txt = '';
+
+        for (var i = 0; i < data[0].sale.length; i++) {
+            count = 2 * (i + 1) - 1;
+            rh = data[0].sale[i];
+            rx = count * rw + 50;
+            ry = 350 - rh;
+            tx = rx;
+            txt = (i + 1) + '月';
+            s += itemTemplet(rx, ry, rw, rh, tx, ty, txt);
+        }
+        svg.insertAdjacentHTML('beforeend', s);
+    }
+
+    //带数字
+    var itemTemplet2 = function (rx, ry, rw, rh, tx, ty, txt, numx, numy, num) {
+        var s = `<text x="${numx}" y="${numy}" font-size="12px">${num}</text>
+                 <rect x="${rx}" y="${ry}" width="${rw}" height="${rh}" fill="blue"/>
+                 <text x="${tx}" y="${ty}">${txt}</text>`;
+        return s;
+    }
+    var buildChart2 = function (data) {
+        var svg = document.querySelector('#svg-main');
+        svg.innerHTML = '';
+        var s = ` <line x1="50" y1="50" x2="50" y2="350" stroke="black" fill="transparent" stroke-width="1"/>
+                  <line x1="50" y1="350" x2="550" y2="350" stroke="black" fill="transparent" stroke-width="1"/>`;
+        var count = 0;//第几条柱子
+        var numx = 0, numy = 0, num = 0;
+        var rw = 20, rh = 0, rx = 0, ry = 0;
+        var tx = 0, ty = 370;
+        var txt = '';
+
+        for (var i = 0; i < data[0].sale.length; i++) {
+            count = 2 * (i + 1) - 1;
+            rh = data[0].sale[i];
+            rx = count * rw + 50;
+            ry = 350 - rh;
+            tx = rx;
+            txt = (i + 1) + '月';
+            numx = rx;
+            numy = ry - 10;
+            num = rh;
+            s += itemTemplet2(rx, ry, rw, rh, tx, ty, txt, numx, numy, num);
+        }
+        svg.insertAdjacentHTML('beforeend', s);
+    }
+
+
+</script>
+</body>
+</html>

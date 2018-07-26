@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function refreshPrice(data) {
+        // var s = data['0000001'].name + ': ' + data['0000001'].price;
+
+        for (var d in data) {
+            console.log('data: ' + data[d].name + ': ' + data[d].price);
+        }
+
+    }
+</script>
+
+<script src="http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice"></script>
+</body>
+</html>

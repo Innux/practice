@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var lower = 'abcdefghijklmnopqrstuvwxyz';
+    var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var code = 'VRPHWLPHV L ZDQW WR FKDW ZLWK BRX,EXW L KDYH QR UHDVRQ WR FKDW ZLWK BRX';
+
+    var encode = function (str, shift) {
+        var res = '';
+        var lowLen = lower.length;
+        var len = str.length;
+        var str = str.toLowerCase();
+        for (var i = 0; i < len; i++) {
+            var index = lower.indexOf(str[i]);
+
+            if (index + shift > lowLen - 1) {
+                res += lower[index + shift - lowLen];
+            } else {
+                res += lower[index + shift];
+            }
+        }
+        return list;
+    }
+
+    var decode = function (str, shift) {
+        var res = '';
+        var lowLen = lower.length;
+        var len = str.length;
+        var str = str.toLowerCase();
+
+        for (var i = 0; i < len; i++) {
+            var index = lower.indexOf(str[i]);
+            if (!lower.includes(str[i])){
+                res += str[i];
+            } else {
+                if (index < shift) {
+                    res += lower[lowLen + index - shift];
+                } else {
+                    res += lower[index - shift];
+                }
+            }
+        }
+        return res;
+    }
+
+
+    for (var i = 1; i < lower.length; i++) {
+        console.log(decode(code, i));
+    }
+
+</script>
+</body>
+</html>

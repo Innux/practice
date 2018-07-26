@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var filter = function (array, processor) {
+        var list = [];
+        for (var i = 0; i < array.length; i++) {
+            var a = array[i];
+            var condition = processor(a);
+            if (condition) {
+                list.push(a);
+            }
+        }
+        return list;
+    }
+    var arr = [3, 2, 5, 33, 22, 55];
+    var res = filter(arr, function (a) {
+        if (a > 10) {
+            return a;
+        }
+    })
+    console.log(res);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /*
+    s1 s2 都是 string
+    但 s2 的长度是 1
+
+    返回 s2 在 s1 中的下标, 从 0 开始, 如果不存在则返回 -1
+    */
+
+    var log = function (msg) {
+        console.log(msg);
+    }
+    var find = function (s1, s2) {
+        if (s2.length != 1) return;
+        return s1.indexOf(s2);
+    }
+
+    var find2 = function (s1, s2) {
+        var len = s1.length
+        if (s1.includes(s2)) {
+            for (var i = 0; i < len; i++) {
+                var str = s1[i]
+                if (str == s2) {
+                    return i
+                }
+            }
+        }
+        return -1
+    }
+
+    log(find('abcd', 'c'));
+    log(find2('abcd', 'c'));
+
+    var lower = 'abcdefghijklmnopqrstuvwxyz';
+    var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    var encode = function (str) {
+        var res = '';
+        for (var i = 0; i < str.length; i++) {
+            var index = lower.indexOf(str[i]);
+            if (index != -1) {
+                if (str[i] == 'z') {
+                    res += 'a';
+                } else {
+                    res += lower[index + 1];
+                }
+            } else {
+                index = upper.indexOf(str[i]);
+                if (str[i] == 'Z') {
+                    res += 'A';
+                } else {
+                    res += upper[index + 1];
+                }
+            }
+        }
+        return res;
+    }
+    var ensure = function (condition) {
+        if (!condition) {
+            console.log('Wrong...');
+        } else {
+            console.log('Right');
+        }
+    }
+    var testEncode = function () {
+        var str = 'abcdABCDzZ';
+        var res = 'bcdeBCDEaA';
+        var s = encode(str);
+        ensure(s === res);
+    }
+
+
+</script>
+</body>
+</html>

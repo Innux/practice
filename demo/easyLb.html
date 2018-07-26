@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .slider {
+            position: relative;
+            height: 300px;
+            width: 510px;
+        }
+
+        .slide-img {
+            display: none;
+            height: 300px;
+            width: 500px;
+        }
+
+        .slide-active {
+            display: inline-block;
+        }
+
+        #btn-next {
+            position: absolute;
+            right: 0;
+            height: 100%;
+            width: 30px;
+            background: transparent;
+            border: none;
+            z-index: 101;
+        }
+        span{
+            display: block;
+            background: rgba(0,0,0,0.5);
+            width: 100%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="slider">
+    <img class="slide-img slide-active" src="../images/lb1.jpeg"/>
+    <img class="slide-img" src="../images/lb2.jpeg"/>
+    <img class="slide-img" src="../images/lb3.jpeg"/>
+    <button id="btn-next" type="button"><span>&gt;</span></button>
+</div>
+<div>
+    <button id="btn-pre">previous</button>
+
+</div>
+<script>
+    var currentIndex = 0;
+    var totalImgs = 3;
+    var imgs = document.querySelectorAll('.slide-img');
+    var activeImgs = document.querySelectorAll('.slide-active');
+
+
+    var clearActive = function () {
+        for (var i = 0; i < activeImgs.length; i++) {
+            activeImgs[i].classList.remove('slide-active');
+        }
+    }
+
+    var nextImg = function () {
+        var img = document.querySelector('.slide-active');
+        img.classList.remove('slide-active');
+        var index = (++currentIndex) % totalImgs;
+        console.log(index);
+        imgs[index].classList.add('slide-active');
+    }
+
+    var preImg = function () {
+        var img = document.querySelector('.slide-active');
+        img.classList.remove('slide-active');
+        var idnex = -1;
+        if (currentIndex == 0) {
+            index = totalImgs - 1;
+        } else {
+            index = (--currentIndex) % totalImgs;
+        }
+        console.log(index);
+        imgs[index].classList.add('slide-active');
+    }
+    var btnPre = document.querySelector('#btn-pre');
+    var btnNext = document.querySelector('#btn-next');
+    btnNext.onclick = function () {
+        nextImg();
+    }
+    btnPre.onclick = function () {
+        preImg();
+    }
+</script>
+</body>
+</html>
